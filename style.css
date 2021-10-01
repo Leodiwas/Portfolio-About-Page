@@ -222,6 +222,7 @@ h1{
     font-weight: 400;
     line-height: 37px;
     color: #181717;
+    cursor: pointer;
 }
 .contact-div-2 > a:last-child{
     font-family: "Inter", sans-serif;
@@ -231,6 +232,7 @@ h1{
     margin-top: 28px;
     text-decoration: none;
     color: #181717;
+    cursor: pointer;
 }
 
 /* footer styling */
