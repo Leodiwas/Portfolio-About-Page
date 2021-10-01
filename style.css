@@ -306,9 +306,12 @@ main{
         line-height: 45px ;
     }
     .heading-2{
-        max-width: 30ch;
-        font-size: 30px;
-        line-height: 38px;
+        max-width: 50ch;
+        font-size: 20px;
+    }
+    .heading-2 > p{
+        font-size: 16px;
+        line-height: 30px;
     }
     .about-img{
         width: 100%;
