@@ -284,7 +284,13 @@ main{
     color: #2429AF;
 }
 
+
+
+
 /* //media queries */
+
+
+/* @media queries for mobile */
 
 @media screen and  (max-width:480px) {
     
@@ -387,3 +393,102 @@ main{
     }
 }
  /* } media queries ends for mobile */
+
+
+/* @media queries for ipad or tablet */
+@media screen and  (max-width:768px) {
+    
+    .container{
+        max-width: 728px;
+        height: 0 auto;
+    }
+    main {
+        padding-block: 60px;
+    }
+    .about{
+        margin: 60px auto;
+    }
+    .about-contents{
+        gap: 40px;
+    }
+    .heading{
+        width: 100%;
+        margin-bottom: 48px;
+    }
+    .contact-contents,.footer-contents {
+        /* flex-direction: column; */
+        gap: 70px;
+    }
+    .heading-1-div{
+        max-width: 45ch;
+    }
+    .heading-1{
+        font-size: 42px;
+        line-height: 45px ;
+    }
+    .heading-2{
+        max-width: 50ch;
+        font-size: 20px;
+    }
+    .heading-2 > p{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .about-img{
+        width: 100%;
+    }
+    .info{
+        margin-bottom: 30px;
+    }
+    .info-1, .info-2{
+        margin-bottom: 60px;
+    }
+    /* .info-1, .info-2{
+        text-align: center;
+    } */
+    .info-2{
+        gap: 96px;
+    }
+    .info-content-about-1, .info-content-about-2 {
+        line-height: 22px;
+        margin: auto 30px;
+        max-width: 30ch;
+    }
+    .contact-div-1{
+        display: flex;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .contact-div-1 > h5{
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .contact-div-1 h5 > i{
+        transform: rotateZ(90deg);
+        gap: 0px;
+    }
+    .contact-div-2 > a:first-child{
+        font-size: 20px;
+        text-align: center;
+    }
+    .contact-div-2 > a:last-child{
+        margin-top: 14px;
+    }
+    .footer-contents{
+        line-height: 40px;
+        margin-bottom: 40px;
+    }
+    .footer-contents-1{
+        text-align: center;
+    }
+    .footer-contents-2 ul{
+        text-align: center;
+        gap: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .underline{
+        margin: 40px auto;
+    }
+}
