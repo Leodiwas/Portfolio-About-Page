@@ -382,7 +382,6 @@ a{
         margin-bottom: 48px;
     }
     .contact-contents,.footer-contents {
-        /* flex-direction: column; */
         gap: 70px;
     }
     .heading-1-div{
@@ -409,9 +408,7 @@ a{
     .info-1, .info-2{
         margin-bottom: 60px;
     }
-    /* .info-1, .info-2{
-        text-align: center;
-    } */
+  
     .info-2{
         gap: 96px;
     }
@@ -454,7 +451,7 @@ a{
         justify-content: center;
     }
    
-}
+/* }
 
 /* @media queries for mobile */
 
