@@ -848,7 +848,9 @@ main{
     .underline{
         margin: 40px auto;
     }
-
+    .project_title{
+        margin-bottom: 10px;
+    }
     .project_card{
         flex-direction: column-reverse;
         gap: 30px;
@@ -859,6 +861,7 @@ main{
     }
     .project_text{
         text-align: center;
+        max-width: 38ch;
     }
     .project_img{
         width: 100%;
