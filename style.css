@@ -13,7 +13,7 @@ body{
 
 }
 .container{
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -30,16 +30,16 @@ a{
 .underline{
     background: #181717;
     height: 3px;
-    margin-bottom: 80px;
     width: 100%;
-    margin: 80px auto;
+    margin-top: 80px;
 }
 
 /* nav bar styling */
 .navbar{
     margin-top: 100px;
+
 }
-.nav-items{
+.navbar-content{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,69 +48,37 @@ a{
     padding-top: 12px;
     padding-bottom: 2px;
 }
-.nav-logo > a{
+.navbar-content > a{
     text-decoration: none;
     font-size: 25px;
     color: #181717;
     cursor: pointer;
 }
-.nav-logo > a:hover{
+.navbar-content > a:hover{
     color: #2429AF;
 }
-.nav-links ul {
+.navbar-content .nav-menu{
     display: flex;
     gap: 30px;
+    margin: 0;
+    padding: 0;
 }
-.nav-links ul li{
+.navbar-content .nav-menu li{
     list-style-type: none;
 }
-.nav-links ul li > a{
+.navbar-content .nav-menu li > a{
     font-size: 21px;
     color: #181717;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.5s ease;
 } 
-.nav-links ul li > a:hover{
+.navbar-content ul li > a:hover{
     color: #2429AF;
 } 
 
-/* .navbar{
-    padding-block: 20px;
-}
-.navbar-brand{
-    font-family: "DM Sans", sans-serif;
-    text-decoration: none;
-    font-size: 30px;
-    color: #181717 !important;
-    cursor: pointer;
-    font-weight: 500;
-}
-.navbar-brand:hover{
-    color: #2429AF;
-}
-.nav-link{
-    font-family: "DM Sans", sans-serif;
-    font-size: 16px;
-    color: #181717 !important;
-    text-decoration: none;
-    line-height: 25px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    font-weight: 500;
-}
-.main-nav {
-    list-style-type: none;
-    display: none;
-} */
 
-button .navbar-toggler-icon > i{
-    display: none;
-}
 /* main styling */
-main{
-    padding-block: 124px;
-}
 
 /* about section styling */
 .about{
@@ -232,7 +200,9 @@ main{
     bottom: -22px;
 }
 
-
+.contact{
+    margin-top: 80px;
+}
 
 .contact-contents{
     display: flex;
@@ -311,27 +281,43 @@ main{
     color: #2429AF;
 }
 
-.nav-link{
-    color: #000;
-    font-size: 18px;
+ /* nav-toggler css start */
+ .nav-toggler {
+    border:none;
+    padding: 5px;
+    background-color: transparent;
     cursor: pointer;
+    height: 39px;
     display: none;
-}
-.nav-link:hover{
-    color: #2429AF;
-}
-
-.navbar-click{
-    color: #000;
-    font-size: 26px;
-    line-height: 6px;
-    display: none;
-    cursor: pointer;
-}
-#click{
-    display: none;
-}
-
+  }
+  .nav-toggler span, 
+  .nav-toggler span:before, 
+  .nav-toggler span:after {
+    width: 28px;
+    height: 3px;
+    background-color: #181717;
+    display: block;
+    transition: .3s;
+  }
+  .nav-toggler span:before {
+    content: '';
+    transform: translateY(-9px);
+  }
+  .nav-toggler span:after {
+    content: '';
+    transform: translateY(6px);
+  }
+  .nav-toggler.toggler-open span {
+    background-color: transparent;
+  }
+  .nav-toggler.toggler-open span:before {
+    transform: translateY(0px) rotate(45deg);
+  }
+  .nav-toggler.toggler-open span:after {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+  /* nav-toggler css ends */
+  
 
 /* //media queries */
 
@@ -339,13 +325,52 @@ main{
 /* @media queries for ipad or tablet */
 @media screen and  (max-width:768px) {
 
+    .nav-toggler{
+        display: block;
+      }
+     
+      .navbar-content {
+        min-height: 60px;
+        margin-top: 0px;
+      }
+      .navbar-content ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 60px);
+        left: 0;
+        top: 60px;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0,0,0,.75);
+        max-height: 0;
+        overflow: hidden;
+        transition: .3s;
+      }
+      .navbar-content ul li {
+        width: 100%;
+        text-align: center;
+      }
+      .navbar-content ul li a {
+        padding: 25px;
+        color: #fff;
+      }
+     .navbar-content ul li {
+        width: 100%;
+        text-align: center;
+      }
+      .navbar-content ul li a {
+        padding: 25px;
+        color: #fff;
+      } 
+
+
+
+
     .container{
         max-width: 728px;
         height: 0 auto;
     }
-    main {
-        padding-block: 60px;
-    }
+
     .about{
         margin: 60px auto;
     }
@@ -365,7 +390,7 @@ main{
     }
     .heading-1{
         font-size: 42px;
-        line-height: 45px ;
+        line-height: 40px ;
     }
     .heading-2{
         max-width: 50ch;
@@ -434,69 +459,72 @@ main{
 /* @media queries for mobile */
 
 @media screen and  (max-width:480px) {
-    .navbar{
-        background: #181717;
-        margin: 0 12px;
-    }
-    .nav-items{
-        background: #F3F3F3;
-    }
-    .navbar-click{
+
+    .nav-toggler{
         display: block;
     }
-    #click:checked ~ .nav-links{
-        left: 0%;
+    .navbar{
+        margin-block: 20px;
     }
-    .nav-links .nav{
-        position: fixed;
-        top: 50px;
-        left: 100%;
-        background: #181717;
+
+    .conatiner{
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .navbar-content {
+        min-height: 60px;
+        /* padding: 0 20px; */
+        margin-top: 0px;
+      }
+    .navbar-content ul {
+        position: absolute;
         width: 100%;
-        height: 100vh;
-        display: flex;
+        height: calc(100vh - 60px);
+        left: 0;
+        top: 60px;
         flex-direction: column;
+        align-items: center;
+        background-color: rgba(0,0,0,.75);
+        max-height: 0;
+        overflow: hidden;
+        transition: .3s;
+    }
+    .navbar-content ul li {
+        width: 100%;
         text-align: center;
     }
-    .nav-links ul li{
-        margin: 20px 0;
-        line-height: 40px;
-        display: block;
+    .navbar-content ul li a {
+        padding: 25px;
+        color: #fff;
     }
-    .nav-links ul li > a{
-        color: white;
-        font-size: 20px ;
-    } 
-    .nav-links ul li > a:hover{
-        color: #2429AF;
-    } 
+    .navbar-content ul li {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-content ul li a {
+        padding: 25px;
+        color: #fff;
+    }
+      /* nav-responisve ends */
 
-
-
-
-
-
-
-
+    section{
+        margin-block: none ;
+    }
+    
     .contact{
-        margin-bottom: 40px;
+        margin-block: 40px;
     }
     .heading-2 > p:first-child{
         margin-bottom: 20px;
     }
-    .navbar-toggler:focus{
-        box-shadow: unset;
-    }
-    main {
-        padding: 10px 12px;
-    }
+
+
+
     .footer-contents-2 ul {
         padding-left: 0;
     }
-    .about{
-        margin: 16px auto;
-
-    }
+  
     .about-contents{
         flex-direction: column;
         gap: 0;
@@ -515,15 +543,15 @@ main{
     }
     .heading-1{
         font-size: 40px;
-        line-height: 45px ;
+        line-height: 40px ;
     }
     .heading-2{
         max-width: 50ch;
         font-size: 20px;
     }
     .heading-2 > p{
-        font-size: 16px;
-        line-height: 30px;
+        font-size: 20px;
+        line-height: 26px;
     }
     .about-img{
         width: 100%;
@@ -583,19 +611,23 @@ main{
     .underline{
         margin: 40px auto;
     }
-   
 }
 
 
-/* ANOTHER ABOUT PAGE STYLING */
+
+
+
+/* ANOTHER work PAGE STYLING */
 /* header styling */
 
-
-
+.underline-workpage{
+    margin-bottom: 80px;
+}
 
 .header{
-    margin-bottom: 114px;
+    margin-top: 160px;
 }
+
 .header-contents{
     display: flex;
     width: 100%;
@@ -626,15 +658,16 @@ main{
     color: #606060;
 }
 
-/* section styling */
 
+/* project card styling starts */
+section{
+    margin-block: 120px ;
+}
 
-/* project ard styling starts */
 .project_card{
     width: 100%;
     display: flex;
     gap: 124px;
-    margin-top: 114px;
 }
 
 .project_info{
@@ -642,13 +675,13 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: "Inter", sans-serif;
 }
 
-.project_title{
+.project_title {
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
-   
 }
 
 .project_text{
@@ -656,8 +689,20 @@ main{
     color: #181717;
     max-width: 40ch;
 }
+.project_text > p:first-child{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.project_text > p:nth-last-child(1){
+    color: #606060;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
 
-.project_link{
+
+.project_link > a{
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
@@ -666,11 +711,30 @@ main{
     position: relative;
     transition: all 0.5s ease;
 }
-.project_link > a::before{
+
+.before-1  > a::before{
     content: "";
     background: black;
     height: 2px;
-    width: 100%;
+    width: 260px;
+    position: absolute;
+    top: 100%;
+}
+
+.before-2 > a::before{
+    content: "";
+    background: black;
+    height: 2px;
+    width:160px;
+    position: absolute;
+    top: 100%;
+}
+
+.before-3  > a::before{
+    content: "";
+    background: black;
+    height: 2px;
+    width: 100px;
     position: absolute;
     top: 100%;
 }
@@ -680,7 +744,7 @@ main{
 }
 
 .project_img >img{
-    border-radius:8px;
+    border-radius:6px;
 }
 /* project card styling ends */
 
@@ -756,7 +820,7 @@ main{
 /* footer styling */
 
 .footer-contents{
-    margin-bottom: 54px;
+    margin-bottom: 44px;
     display: flex;
     justify-content: space-between;
 }
@@ -786,8 +850,13 @@ main{
 }
 
 
+    /* workpage media queries */
+
 @media screen and (max-width: 480px ){ 
 
+    section {
+        margin-block: 50px;
+    }
     .nav-links{
         display: none;
     }
@@ -801,10 +870,13 @@ main{
         flex-direction: column;
     }
     .project_card{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 60px;
+        }
+    .project_title{
+        margin-bottom: 30px;
     }
     .project_img{
         width: 100%;
@@ -812,6 +884,16 @@ main{
     .project_info{
         text-align: center;
         width: 100%;
+    }
+    
+
+    .project_text> p:first-child {
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+    .project_text > p:nth-last-child(1) {
+        margin-bottom: 30px;
+        line-height: 24px;
     }
     .heading-margin-1{
         margin-bottom: 50px;
@@ -854,7 +936,7 @@ main{
         line-height: 30px;   
     }
     .header {
-        margin-bottom: 0;
+        margin-top: 50px;
     }
     .dwn-arrow {
         margin-top: 50px;
@@ -863,8 +945,10 @@ main{
         font-size: 15px;
     }
     .navbar {
-        margin-top: 50px;
-        margin-bottom: 110px;
+        margin-block: 50px;
     }
-}
+    .underline-workpage {
+        margin-bottom: 40px;
+    }
 
+}
