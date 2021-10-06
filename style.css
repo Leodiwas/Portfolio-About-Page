@@ -35,47 +35,77 @@ a{
 }
 
 /* nav bar styling */
-.navbar{
-    margin-top: 100px;
+/* navbar regular css start */
 
-}
-.navbar-content{
+.navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 160px;
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
-    padding-top: 12px;
-    padding-bottom: 2px;
-}
-.navbar-content > a{
+  }
+  .nav-logo {
+    transition: all 0.5s ease;
     text-decoration: none;
     font-size: 25px;
     color: #181717;
     cursor: pointer;
-}
-.navbar-content > a:hover{
-    color: #2429AF;
-}
-.navbar-content .nav-menu{
-    display: flex;
-    gap: 30px;
+  }
+  .nav-menu {
     margin: 0;
     padding: 0;
-}
-.navbar-content .nav-menu li{
-    list-style-type: none;
-}
-.navbar-content .nav-menu li > a{
-    font-size: 21px;
+    list-style: none;
+    display: flex;
+  }
+  .nav-link{
     color: #181717;
+    padding: 20px;
+    display: block;
     text-decoration: none;
-    cursor: pointer;
+    text-transform: uppercase;
+    line-height: 25px;
     transition: all 0.5s ease;
-} 
-.navbar-content ul li > a:hover{
-    color: #2429AF;
-} 
+  }
+  
+  /* navbar regular css end */
+
+/* nav-toggler css start */
+  .nav-toggler {
+    border:none;
+    padding: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    height: 39px;
+    display: none;
+  }
+  .nav-toggler span, 
+  .nav-toggler span:before, 
+  .nav-toggler span:after {
+    width: 28px;
+    height: 3px;
+    background-color: #181717;
+    display: block;
+    transition: .3s;
+  }
+  .nav-toggler span:before {
+    content: '';
+    transform: translateY(-9px);
+  }
+  .nav-toggler span:after {
+    content: '';
+    transform: translateY(6px);
+  }
+  .nav-toggler.toggler-open span {
+    background-color: transparent;
+  }
+  .nav-toggler.toggler-open span:before {
+    transform: translateY(0px) rotate(45deg);
+  }
+  .nav-toggler.toggler-open span:after {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+  /* nav-toggler css start */
 
 
 /* main styling */
@@ -286,43 +316,6 @@ main{
     color: #2429AF;
 }
 
- /* nav-toggler css start */
- .nav-toggler {
-    border:none;
-    padding: 5px;
-    background-color: transparent;
-    cursor: pointer;
-    height: 39px;
-    display: none;
-  }
-  .nav-toggler span, 
-  .nav-toggler span:before, 
-  .nav-toggler span:after {
-    width: 28px;
-    height: 3px;
-    background-color: #181717;
-    display: block;
-    transition: .3s;
-  }
-  .nav-toggler span:before {
-    content: '';
-    transform: translateY(-9px);
-  }
-  .nav-toggler span:after {
-    content: '';
-    transform: translateY(6px);
-  }
-  .nav-toggler.toggler-open span {
-    background-color: transparent;
-  }
-  .nav-toggler.toggler-open span:before {
-    transform: translateY(0px) rotate(45deg);
-  }
-  .nav-toggler.toggler-open span:after {
-    transform: translateY(-3px) rotate(-45deg);
-  }
-  /* nav-toggler css ends */
-  
 /* end of desktop view styling */
 
 /* //media queries starts */
@@ -519,13 +512,49 @@ main{
 
 /* @media queries for ipad or tablet */
 @media screen and  (max-width:768px) {
+
+    .nav-toggler{
+        display: block;
+      }
+     
+      .navbar-content {
+        min-height: 60px;
+        padding: 0 20px;
+        margin-top: 0px;
+      }
+      .navbar-content ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 60px);
+        left: 0;
+        top: 60px;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0,0,0,.75);
+        max-height: 0;
+        overflow: hidden;
+        transition: .3s;
+      }
+      .navbar-content ul li {
+        width: 100%;
+        text-align: center;
+      }
+      .navbar-content ul li a {
+        padding: 25px;
+        color: #fff;
+      }
+      .navbar-content ul li a:hover {
+        background-color: rgba(255,255,255,.1);
+      }
+      .navbar-content ul.open {
+        max-height: 100vh;
+        overflow: visible;
+      }
+      
     main{
         padding-block: 60px;
     }
-    .navbar{
-        
-    margin-top: 50px;
-    }
+ 
     .nav-toggler{
         display: block;
       }
@@ -703,9 +732,6 @@ main{
     .nav-toggler{
         display: block;
     }
-    .navbar{
-        margin-block: 10px;
-    }
 
     .conatiner{
         max-width: 380px;
@@ -749,6 +775,7 @@ main{
       /* nav-responisve ends */
 
     
+
     .contact{
         margin-block: 0;
     }
@@ -889,17 +916,6 @@ main{
     .project_text > p:nth-last-child(1){
         margin-bottom: 20px;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
